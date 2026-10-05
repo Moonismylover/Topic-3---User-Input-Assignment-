@@ -13,7 +13,8 @@ namespace Topic_3___User_Input__Assignment_
             Console.WriteLine("-------------------------Greetings-------------------------");
             Console.WriteLine();
 
-            Console.WriteLine()
+            Console.WriteLine();
+
 
         }
 
