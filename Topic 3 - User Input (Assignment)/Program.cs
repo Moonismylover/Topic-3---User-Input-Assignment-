@@ -91,18 +91,61 @@ namespace Topic_3___User_Input__Assignment_
 
             Console.WriteLine($"Congrats on inputing all your numbers! Your total is {total}!");
 
+            Console.WriteLine();
+
         }
 
         public static void Distance()
         {
+            Console.WriteLine("-------------------------Distance-------------------------");
+            Console.WriteLine();
+
+            decimal kmOne, kmTwo, kmThree, total = 0;
+
+            Console.WriteLine("Enter 3 distances in km (may include decimals) to find the average!");
+
+            Console.WriteLine();
+
+            Console.Write("Distance #1: ");
+
+            while (!Double.TryParse(Console.ReadLine(), out kmOne))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid output!!! Please try again!");
+                Console.Write("Distance #1: ");
+            }
+
+            Console.WriteLine();
+            Console.Write("Distance #2: ");
+
+            while (!Double.TryParse(Console.ReadLine(), out kmTwo))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid output!!! Please try again!");
+                Console.Write("Distance #2 ");
+            }
+
+            Console.WriteLine();
+            Console.Write("Distance #3: ");
+
+            while (!Int32.TryParse(Console.ReadLine(), out kmThree))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid output!!! Please try again!");
+                Console.Write("Distance #3: ");
+            }
+
+            Console.WriteLine();
         }
+
 
         static void Main(string[] args)
         {
             Console.Title = "Topic 3 - User Input (Assignment)";
 
             //Greetings();
-            Adder();
+            //Adder();
+            Distance();
         }
     }
 }
