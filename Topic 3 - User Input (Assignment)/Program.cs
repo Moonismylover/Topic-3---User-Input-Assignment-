@@ -4,6 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace Topic_3___User_Input__Assignment_
 {
@@ -100,7 +101,7 @@ namespace Topic_3___User_Input__Assignment_
             Console.WriteLine("-------------------------Distance-------------------------");
             Console.WriteLine();
 
-            decimal kmOne, kmTwo, kmThree, total = 0;
+            double  kmOne, kmTwo, kmThree, total = 0;
 
             Console.WriteLine("Enter 3 distances in km (may include decimals) to find the average!");
 
@@ -128,7 +129,7 @@ namespace Topic_3___User_Input__Assignment_
             Console.WriteLine();
             Console.Write("Distance #3: ");
 
-            while (!Int32.TryParse(Console.ReadLine(), out kmThree))
+            while (!Double.TryParse(Console.ReadLine(), out kmThree))
             {
                 Console.WriteLine();
                 Console.WriteLine("Invalid output!!! Please try again!");
@@ -136,39 +137,63 @@ namespace Topic_3___User_Input__Assignment_
             }
 
             Console.WriteLine();
+
+            total = (kmOne + kmTwo + kmThree) / 3;
+
+            Console.WriteLine($"Congrats on entering all your three distances!!! Must have been hard work!! Your total distance, rounded to two decimal places, is {Math.Round(total, 2)} kilometers!");
+
+            Console.WriteLine();
         }
 
+        public static void Hypotenuse()
+        {
+            Console.WriteLine("-------------------------Hypotenuse-------------------------");
+            Console.WriteLine();
+
+            double a, b, c = 0;
+
+            Console.WriteLine("Enter the lengths of the two legs of a right triangle (a and b)!");
+
+            Console.WriteLine();
+
+            Console.Write("Length of leg a: ");
+
+            while (!Double.TryParse(Console.ReadLine(), out a))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid input!!! Please try again!");
+                Console.Write("Length of leg a: ");
+            }
+
+            Console.WriteLine();
+            Console.Write("Length of leg b: ");
+
+            while (!Double.TryParse(Console.ReadLine(), out b))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid input!!! Please try again!");
+                Console.Write("Length of leg b: ");
+            }
+
+            Console.WriteLine();
+
+            a = Math.Pow(a, 2);
+            b = Math.Pow(b, 2);
+            c = Math.Sqrt(a + b);
+
+            Console.WriteLine($"Our calculations are complete! The length of the hypotenuse, rounded to 2 decimal places, is {Math.Round(c, 2)}!");
+
+            Console.WriteLine();
+        }
 
         static void Main(string[] args)
         {
             Console.Title = "Topic 3 - User Input (Assignment)";
 
-            //Greetings();
-            //Adder();
+            Greetings();
+            Adder();
             Distance();
+            Hypotenuse();
         }
     }
 }
-
-/*
-
-
-
-3. Distance
-
-Create a program that reads in three distances in km (may include decimals) and prints
-the average. Round to 2 decimal places.
-
-4. Hypotenuse
-
-Create a program that will read in the two legs of a right triangle, and output the length
-of the hypotenuse. You may want to use a method from the Math class to help with
-finding the square root. Use the internet to help you. Round to 2 decimal places.
-Here is a link to the official documentation for the Math class. This class contains a number of
-methods that perform a variety of important mathematical operations. Look for the “Methods” section
-in the menu at the right to find a method for square root:
-https://docs.microsoft.com/en-us/dotnet/api/system.math?view=netframework-4.8
-
-If you can’t find what you are looking for on the official API, use an internet search engine to find what
-you are looking for.
-*/
